@@ -1,3 +1,6 @@
+<?php
+
+/* version 1 - long text only, no wrap  */
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'https://raw.githubusercontent.com/burgasweb/obednomenu/master/content.txt');
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -7,6 +10,7 @@ curl_close($ch);
 
 echo $data;
 
+/* version 2 - with four elements to display in front  */
 
 $txt_file    = file_get_contents('https://raw.githubusercontent.com/burgasweb/obednomenu/master/content.txt');
 $rows        = explode("\n", $txt_file);
@@ -36,3 +40,12 @@ foreach($rows as $row => $data)
 
     echo '<br />';
 }
+/* version 3 - the simple one */
+
+$array = file('https://raw.githubusercontent.com/burgasweb/obednomenu/master/content.txt');
+foreach($array as $line)
+       {
+           echo $line . '<br />';
+       }
+
+?>
